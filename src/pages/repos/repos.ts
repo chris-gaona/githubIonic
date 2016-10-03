@@ -11,7 +11,7 @@ import { NavController } from 'ionic-angular';
   selector: 'page-repos',
   templateUrl: 'repos.html'
 })
-export class Repos {
+export class ReposPage {
 
   constructor(public navCtrl: NavController) {}
 

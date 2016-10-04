@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
+
 import { MyApp } from './app.component';
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganizationsPage } from '../pages/organizations/organizations';
+import { GithubUsers } from '../providers/github-users';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,6 @@ import { OrganizationsPage } from '../pages/organizations/organizations';
     ReposPage,
     OrganizationsPage
   ],
-  providers: []
+  providers: [ GithubUsers ]
 })
 export class AppModule {}

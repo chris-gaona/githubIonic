@@ -15,7 +15,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <!--We've added an (input)="search($event)" in the ion-searchbar to capture the input event for the searchbar. -->
+  <!--Angular 2 binds to events through (event) syntax.-->
+  <ion-searchbar (input)="search($event)"></ion-searchbar>
   <ion-list>
     <button ion-item *ngFor="let user of users" (click)="goToDetails(user.login)">
       <ion-avatar item-left>

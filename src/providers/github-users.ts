@@ -26,4 +26,13 @@ export class GithubUsers {
       // This is returned as an observable, which we'll subscribe to to see the users
       .map(res => <User[]>res.json());
   }
+
+  // Get github user by providing login(username)
+  loadDetails(login: string): Observable<User> {
+    return this.http.get(`${this.githubApiUrl}/users/${login}`)
+      // parse the json response with res.json()
+      // cast it as an array of users with <User[]>res.json()
+      // This is returned as an observable, which we'll subscribe to to see the specific user
+      .map(res => <User>res.json());
+  }
 }

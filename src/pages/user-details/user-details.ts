@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { User } from '../../models/user';
+import { GithubUsers } from '../../providers/github-users';
+
 /*
   Generated class for the UserDetails page.
 
@@ -12,13 +15,19 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'user-details.html'
 })
 export class UserDetailsPage {
+  user: User;
   login: string;
 
+  // We then inject it in the constructor as githubUsers then call the githubUsers.loadDetails with the value retrieved from the navigation params login
   constructor(
     public navCtrl: NavController,
-    private navParams: NavParams
+    private navParams: NavParams,
+    private githubUsers: GithubUsers
   ) {
     this.login = navParams.get('login');
+    githubUsers.loadDetails(this.login).subscribe(user => {
+      this.user = user;
+    })
   }
 
   // ionViewDidLoad() {
